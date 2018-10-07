@@ -26,13 +26,12 @@
         <td><%= tech.logo %></td>
         <td><%= tech.user_id %></td>
         <td><%= link_to 'Show', tech , class: 'btn btn-info'%></td>
+        <% if user_signed_in? && tech.user_id == current_user.id %>
         <td><%= link_to 'Edit', edit_technology_path(tech) , class: 'btn btn-info'%></td>
         <td><%= link_to 'Destroy', tech, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-info'%></td>
       </tr>
     <% end %>
+    <% end %>
   </tbody>
 </table>
-
-<br>
-<%= link_to 'New Tech', new_technology_path %>
 </div>
