@@ -25,6 +25,8 @@ class TechnologiesController < ApplicationController
   # POST /technologies.json
   def create
     @technology = Technology.new(technology_params)
+    @technology.image.attach(params[:tech][:logo])
+
 
     respond_to do |format|
       if @technology.save
